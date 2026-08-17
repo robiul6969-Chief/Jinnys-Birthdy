@@ -3,98 +3,358 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Academic Platform</title>
+
   <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
-    header{background:#173b8f;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center}
-    header h2{margin:0}
-    nav a{color:white;text-decoration:none;margin-left:18px}
-    .hero{text-align:center;padding:70px 20px;background:white}
-    .hero h1{font-size:42px;margin:10px 0}
-    .hero p{font-size:18px;color:#666}
-    .buttons{margin-top:30px}
-    button{border:0;padding:13px 22px;border-radius:8px;margin:6px;cursor:pointer;font-size:15px}
-    .primary{background:#173b8f;color:white}
-    .secondary{background:#e8edff;color:#173b8f}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:40px 6%}
-    .card{background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px #00000012;text-align:center}
-    footer{text-align:center;padding:25px;background:#172033;color:white}
-    @media(max-width:600px){.hero h1{font-size:32px}nav{display:none}}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: #173b8f;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 75px 20px;
+      background: white;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* BUTTONS */
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      border: none;
+      padding: 13px 22px;
+      border-radius: 8px;
+      margin: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .primary {
+      background: #173b8f;
+      color: white;
+    }
+
+    .secondary {
+      background: #e8edff;
+      color: #173b8f;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 45px 6%;
+    }
+
+    .card {
+      background: white;
+      padding: 28px 20px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px #00000012;
+      text-align: center;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #172033;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .developer-credit {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #cbd5e1;
+    }
+
+    .developer-credit strong {
+      color: white;
+      font-weight: 700;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+
+      header {
+        padding: 16px 20px;
+      }
+
+      header h2 {
+        font-size: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 55px 15px;
+      }
+
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cards {
+        padding: 30px 20px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h2>🎓 Academic Platform</h2>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
 
-<section class="hero" id="home">
-  <h1>এক প্ল্যাটফর্মে সব Academic Services</h1>
-  <p>School • Madrasah • College — সবার জন্য</p>
+    <h2>🎓 Academic Platform</h2>
 
-  <div class="buttons">
-    <button class="primary" onclick="institutionLogin()">Institution Login</button>
-    <button class="secondary" onclick="studentLogin()">Student Login</button>
-    <button class="primary" onclick="registerInstitution()">Register Institution</button>
-  </div>
-</section>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<section class="cards" id="features">
+  </header>
 
-  <div class="card">
-    <h3>📢 Notice</h3>
-    <p>প্রতিষ্ঠানের গুরুত্বপূর্ণ নোটিশ দেখুন।</p>
-    <button class="secondary" onclick="showMessage('Notice')">Open</button>
-  </div>
 
-  <div class="card">
-    <h3>📊 Result</h3>
-    <p>পরীক্ষার ফলাফল দেখুন।</p>
-    <button class="secondary" onclick="showMessage('Result')">Open</button>
-  </div>
+  <!-- HOME / HERO -->
+  <section class="hero" id="home">
 
-  <div class="card">
-    <h3>📝 Routine</h3>
-    <p>পরীক্ষার রুটিন দেখুন।</p>
-    <button class="secondary" onclick="showMessage('Routine')">Open</button>
-  </div>
+    <h1>এক প্ল্যাটফর্মে সব Academic Services</h1>
 
-  <div class="card">
-    <h3>📚 Study Materials</h3>
-    <p>নোট ও পড়াশোনার উপকরণ।</p>
-    <button class="secondary" onclick="showMessage('Study Materials')">Open</button>
-  </div>
+    <p>
+      School • Madrasah • College — সবার জন্য
+    </p>
 
-</section>
+    <div class="buttons">
 
-<footer id="contact">
-  © 2026 Academic Platform
-</footer>
+      <button
+        class="primary"
+        onclick="institutionLogin()">
+        Institution Login
+      </button>
 
-<script>
-function institutionLogin(){
-  alert("Institution Login — পরবর্তী ধাপে Login System যুক্ত করা হবে।");
-}
+      <button
+        class="secondary"
+        onclick="studentLogin()">
+        Student Login
+      </button>
 
-function studentLogin(){
-  alert("Student Login — পরবর্তী ধাপে Login System যুক্ত করা হবে।");
-}
+      <button
+        class="primary"
+        onclick="registerInstitution()">
+        Register Institution
+      </button>
 
-function registerInstitution(){
-  alert("Institution Registration — পরবর্তী ধাপে Registration System যুক্ত করা হবে।");
-}
+    </div>
 
-function showMessage(name){
-  alert(name + " section — Database যুক্ত করার পর এখানে আসল তথ্য দেখাবে।");
-}
-</script>
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="cards" id="features">
+
+    <!-- NOTICE -->
+    <div class="card">
+
+      <h3>📢 Notice</h3>
+
+      <p>
+        প্রতিষ্ঠানের গুরুত্বপূর্ণ নোটিশ দেখুন।
+      </p>
+
+      <button
+        class="secondary"
+        onclick="openSection('Notice')">
+        Open
+      </button>
+
+    </div>
+
+
+    <!-- RESULT -->
+    <div class="card">
+
+      <h3>📊 Result</h3>
+
+      <p>
+        পরীক্ষার ফলাফল দেখুন।
+      </p>
+
+      <button
+        class="secondary"
+        onclick="openSection('Result')">
+        Open
+      </button>
+
+    </div>
+
+
+    <!-- ROUTINE -->
+    <div class="card">
+
+      <h3>📝 Routine</h3>
+
+      <p>
+        পরীক্ষার রুটিন দেখুন।
+      </p>
+
+      <button
+        class="secondary"
+        onclick="openSection('Routine')">
+        Open
+      </button>
+
+    </div>
+
+
+    <!-- STUDY MATERIAL -->
+    <div class="card">
+
+      <h3>📚 Study Materials</h3>
+
+      <p>
+        নোট ও পড়াশোনার উপকরণ।
+      </p>
+
+      <button
+        class="secondary"
+        onclick="openSection('Study Materials')">
+        Open
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="contact">
+
+    <div>
+      © 2026 Academic Platform
+    </div>
+
+    <div class="developer-credit">
+      Developed by
+      <strong>MD ROBIUL ISLAM</strong>
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function institutionLogin() {
+
+      alert(
+        "Institution Login\n\nপরবর্তী ধাপে এখানে আসল Institution Login System যুক্ত হবে।"
+      );
+
+    }
+
+
+    function studentLogin() {
+
+      alert(
+        "Student Login\n\nপরবর্তী ধাপে এখানে Student ID + Password Login System যুক্ত হবে।"
+      );
+
+    }
+
+
+    function registerInstitution() {
+
+      alert(
+        "Register Institution\n\nপরবর্তী ধাপে এখানে Institution Registration System যুক্ত হবে।"
+      );
+
+    }
+
+
+    function openSection(sectionName) {
+
+      alert(
+        sectionName +
+        "\n\nপরবর্তী ধাপে এখানে আসল Database থেকে তথ্য দেখানো হবে।"
+      );
+
+    }
+
+  </script>
 
 </body>
 </html>
