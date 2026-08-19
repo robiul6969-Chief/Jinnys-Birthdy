@@ -1,1 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>FAVORITE JANNAT • 28 SEPTEMBER</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#020202;
+  color:#fff;
+  font-family:Georgia,"Times New Roman",serif;
+  overflow-x:hidden;
+}
+
+#stars{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:0;
+  pointer-events:none;
+}
+
+.page{
+  position:relative;
+  z-index:2;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  padding:30px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(212,175,55,.13),
+      transparent 36%
+    ),
+    #020202;
+}
+
+.frame{
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(212,175,55,.25);
+  pointer-events:none;
+}
+
+.frame:before,
+.frame:after{
+  content:"";
+  position:absolute;
+  width:70px;
+  height:70px;
+}
+
+.frame:before{
+  top:-1px;
+  left:-1px;
+  border-top:2px solid #d4af37;
+  border-left:2px solid #d4af37;
+}
+
+.frame:after{
+  right:-1px;
+  bottom:-1px;
+  border-right:2px solid #d4af37;
+  border-bottom:2px solid #d4af37;
+}
+
+.small-title{
+  color:#d4af37;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:7px;
+  text-transform:uppercase;
+  animation:fadeUp 1.5s ease;
+}
+
+.line{
+  width:120px;
+  height:1px;
+  margin:25px auto;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #d4af37,
+    transparent
+  );
+}
+
+.hero h1{
+  font-size:clamp(45px,10vw,100px);
+  font-weight:400;
+  letter-spacing:8px;
+  line-height:1.05;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8a681c,
+      #fff2a6,
+      #d4af37,
+      #fff8c9,
+      #8a681c
+    );
+
+  background-size:300%;
+
+  -webkit-background-clip:text;
+  color:transparent;
+
+  animation:
+    goldMove 6s linear infinite,
+    fadeUp 1.8s ease;
+}
+
+.subtitle{
+  color:#bdbdbd;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+.date{
+  color:#e6ce77;
+  margin-top:28px;
+  font-size:22px;
+  letter-spacing:8px;
+}
+
+.enter{
+  margin-top:42px;
+  padding:16px 34px;
+  background:transparent;
+  border:1px solid #d4af37;
+  color:#e9d27d;
+  cursor:pointer;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:4px;
+  transition:.4s;
+  animation:buttonPulse 2.2s infinite;
+}
+
+.enter:hover{
+  background:#d4af37;
+  color:#050505;
+  box-shadow:
+    0 0 25px rgba(212,175,55,.35),
+    0 0 70px rgba(212,175,55,.12);
+  transform:translateY(-3px);
+}
+
+.click-hint{
+  margin-top:16px;
+  color:#887747;
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:3px;
+  animation:hintPulse 1.8s infinite;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.wrap{
+  width:min(900px,100%);
+}
+
+.label{
+  color:#a98932;
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+}
+
+h2{
+  color:#ead47d;
+  font-weight:400;
+  font-size:clamp(34px,7vw,65px);
+  margin:18px 0;
+}
+
+.card{
+  width:min(720px,100%);
+  margin:auto;
+  padding:45px 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(212,175,55,.025)
+    );
+
+  border:1px solid rgba(212,175,55,.28);
+
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.6);
+}
+
+.card-intro{
+  color:#cfcfcf;
+  font-family:Arial,sans-serif;
+  font-size:15px;
+  line-height:1.9;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area{
+  width:200px;
+  height:190px;
+  margin:40px auto 10px;
+  position:relative;
+  cursor:pointer;
+
+  animation:
+    giftFloat 2.5s ease-in-out infinite;
+}
+
+.gift{
+  position:absolute;
+  bottom:0;
+  left:40px;
+  width:120px;
+  height:95px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #725414,
+      #d4af37,
+      #8d681c
+    );
+
+  border-radius:3px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.7);
+}
+
+.gift:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:18px;
+  height:100%;
+  background:#f6df82;
+}
+
+.lid{
+  position:absolute;
+  z-index:3;
+  left:32px;
+  top:58px;
+
+  width:136px;
+  height:30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #866217,
+      #f1d56e,
+      #8c681d
+    );
+
+  border-radius:4px;
+
+  transition:
+    transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.ribbon{
+  position:absolute;
+  z-index:4;
+  top:34px;
+  left:50%;
+  transform:translateX(-50%);
+
+  width:18px;
+  height:35px;
+
+  background:#f5dc7d;
+}
+
+.gift-area:hover{
+  transform:scale(1.05);
+}
+
+.gift-area.open{
+  animation:none;
+}
+
+.gift-area.open .lid{
+  transform:
+    translateY(-75px)
+    rotate(-8deg);
+}
+
+.gift-area.open .gift{
+  animation:giftGlow 1.2s infinite alternate;
+}
+
+.tap-box{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 17px;
+
+  border:1px solid rgba(212,175,55,.35);
+  color:#d9bd68;
+
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+
+  animation:hintPulse 1.7s infinite;
+}
+
+.tap-arrow{
+  display:block;
+  color:#d4af37;
+  font-size:17px;
+  margin-top:7px;
+  animation:arrowBounce 1.2s infinite;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+
+  transition:
+    max-height 2s ease,
+    opacity 1.5s ease;
+}
+
+.message.show{
+  max-height:1200px;
+  opacity:1;
+}
+
+.salam{
+  color:#f0d982;
+  font-size:24px;
+  letter-spacing:2px;
+  margin-top:10px;
+}
+
+.dua{
+  color:#ddd;
+  font-size:16px;
+  line-height:2;
+  margin-top:22px;
+}
+
+.message-text{
+  margin-top:25px;
+  color:#d4d4d4;
+  font-size:16px;
+  line-height:2;
+}
+
+.highlight{
+  color:#ead47d;
+  font-size:21px;
+}
+
+.signature{
+  margin-top:28px;
+  color:#d4af37;
+  font-family:Arial,sans-serif;
+  font-size:10px;
+  letter-spacing:4px;
+}
+
+.scroll-hint{
+  margin-top:35px;
+  color:#887747;
+  font-family:Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:3px;
+  animation:hintPulse 2s infinite;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(212,175,55,.10),
+      transparent 38%
+    ),
+    #020202;
+}
+
+.final h3{
+  font-size:clamp(38px,8vw,82px);
+  font-weight:400;
+  letter-spacing:5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #9b741e,
+      #fff0a0,
+      #d4af37,
+      #fff7bd
+    );
+
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.final-name{
+  color:#e7d27c;
+  font-size:clamp(28px,6vw,55px);
+  letter-spacing:5px;
+  margin-top:15px;
+}
+
+.final-text{
+  max-width:650px;
+  margin:25px auto;
+  color:#aaa;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  line-height:1.9;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  padding:30px;
+  background:#010101;
+
+  color:#675d42;
+
+  font-family:Arial,sans-serif;
+  font-size:8px;
+  letter-spacing:3px;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+  position:fixed;
+  top:-20px;
+  width:5px;
+  height:12px;
+  z-index:100;
+  pointer-events:none;
+
+  animation:
+    confettiFall 4s linear forwards;
+}
+
+.spark{
+  position:fixed;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#f3d77b;
+  z-index:100;
+  pointer-events:none;
+
+  animation:
+    sparkMove .9s ease-out forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes goldMove{
+  from{
+    background-position:0%;
+  }
+
+  to{
+    background-position:300%;
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes buttonPulse{
+  0%,100%{
+    box-shadow:0 0 0 rgba(212,175,55,0);
+  }
+
+  50%{
+    box-shadow:
+      0 0 25px rgba(212,175,55,.22);
+  }
+}
+
+@keyframes hintPulse{
+  0%,100%{
+    opacity:.45;
+  }
+
+  50%{
+    opacity:1;
+  }
+}
+
+@keyframes giftFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+@keyframes giftGlow{
+  from{
+    filter:brightness(1);
+  }
+
+  to{
+    filter:brightness(1.35);
+
+    box-shadow:
+      0 0 40px rgba(212,175,55,.4),
+      0 0 90px rgba(212,175,55,.12);
+  }
+}
+
+@keyframes arrowBounce{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(7px);
+  }
+}
+
+@keyframes confettiFall{
+  to{
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
+    opacity:0;
+  }
+}
+
+@keyframes sparkMove{
+  to{
+    transform:
+      translate(var(--x),var(--y));
+
+    opacity:0;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .frame{
+    inset:12px;
+  }
+
+  .hero h1{
+    letter-spacing:4px;
+  }
+
+  .date{
+    font-size:16px;
+    letter-spacing:5px;
+  }
+
+  .card{
+    padding:35px 20px;
+  }
+
+  .message-text{
+    font-size:15px;
+  }
+
+  .salam{
+    font-size:20px;
+  }
+
+  .enter{
+    padding:14px 22px;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="page">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="frame"></div>
+
+  <div>
+
+    <div class="small-title">
+      A Private Birthday Surprise
+    </div>
+
+    <div class="line"></div>
+
+    <h1>
+      FAVORITE<br>
+      JANNAT
+    </h1>
+
+    <div class="line"></div>
+
+    <div class="subtitle">
+      A Special Day For Someone Special
+    </div>
+
+    <div class="date">
+      28 SEPTEMBER
+    </div>
+
+    <button
+      class="enter"
+      onclick="goToSurprise()">
+
+      ✦ ENTER THE SURPRISE ✦
+
+    </button>
+
+    <div class="click-hint">
+      ↓ TAP HERE TO BEGIN ↓
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     SURPRISE
+========================= -->
+
+<section id="surprise">
+
+  <div class="wrap">
+
+    <div class="label">
+      Chapter I • The Surprise
+    </div>
+
+    <h2>
+      Something is waiting for you…
+    </h2>
+
+    <div class="card">
+
+      <p class="card-intro">
+
+        A little surprise was made especially for you.<br>
+        Take a moment… make a wish…<br>
+        then open the gift. ✨
+
+      </p>
+
+
+      <!-- GIFT -->
+
+      <div
+        class="gift-area"
+        id="gift"
+        onclick="openGift()">
+
+        <div class="lid"></div>
+
+        <div class="ribbon"></div>
+
+        <div class="gift"></div>
+
+      </div>
+
+
+      <div class="tap-box">
+        🎁 TAP THE GIFT TO OPEN
+      </div>
+
+      <div class="tap-arrow">
+        ↓
+      </div>
+
+
+      <!-- MESSAGE -->
+
+      <div
+        class="message"
+        id="message">
+
+        <div class="line"></div>
+
+
+        <div class="salam">
+          ASSALAMU-ALAIKUM 🖤
+        </div>
+
+
+        <div class="dua">
+
+          আল্লাহ তোমার জীবনকে শান্তি, সুখ
+          এবং সুন্দর মুহূর্তে ভরিয়ে দিন। 🤲<br>
+
+          তোমার প্রতিটি ভালো চাওয়া কবুল হোক,
+          তোমার পথ সহজ হোক,<br>
+
+          আর তুমি সবসময় ভালো থেকো—
+          এই দোয়াই করি। ✨
+
+        </div>
+
+
+        <div class="message-text">
+
+          <div class="highlight">
+            Happy Birthday, FAVORITE JANNAT. 🎂
+          </div>
+
+          <br>
+
+          জানি, হয়তো আমার কোনো কথা বা কাজ
+          তোমাকে কষ্ট দিয়েছে,<br>
+
+          আর হয়তো আমাকে ভুলও বুঝেছো।
+
+          <br><br>
+
+          আজ তোমার জন্মদিন—
+          তাই পুরোনো কোনো কথা নিয়ে
+          তোমাকে কোনো চাপ দিতে চাই না।
+
+          <br><br>
+
+          শুধু চাই, তুমি ভালো থাকো,
+          হাসিখুশি থাকো,
+          আর তোমার প্রতিটা দিন সুন্দর হোক।
+
+          <br><br>
+
+          যদি কখনো আমার কোনো কথায়
+          কষ্ট পেয়ে থাকো,
+
+          <strong style="color:#e8d18a">
+            I’m truly sorry.
+          </strong>
+
+          <br><br>
+
+          এই ছোট্ট surprise-এর কোনো প্রত্যাশা নেই—
+
+          শুধু তোমার বিশেষ দিনটাকে
+          একটু সুন্দর করে তুলতে চেয়েছিলাম।
+
+          <br><br>
+
+          <strong style="color:#e8d18a">
+            Happy Birthday once again. ✨
+          </strong>
+
+          <br><br>
+
+          Take care, always. 🖤
+
+        </div>
+
+
+        <div class="signature">
+          WITH A LITTLE GOLDEN WISH ✦
+        </div>
+
+
+        <div class="scroll-hint">
+          ↓ SCROLL DOWN FOR THE FINAL SURPRISE ↓
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+  <div class="wrap">
+
+    <div class="label">
+      Chapter II • The Wish
+    </div>
+
+    <div class="line"></div>
+
+    <h3>
+      HAPPY BIRTHDAY
+    </h3>
+
+    <div class="final-name">
+      FAVORITE JANNAT
+    </div>
+
+    <div class="line"></div>
+
+    <p class="final-text">
+
+      May your special day be filled with
+      beautiful moments, genuine smiles,
+      and memories worth keeping forever.
+
+      <br><br>
+
+      May every new chapter of your life
+      bring you something beautiful.
+
+    </p>
+
+
+    <button
+      class="enter"
+      onclick="celebrate()">
+
+      ✨ TAP FOR YOUR FINAL SURPRISE ✨
+
+    </button>
+
+    <div class="click-hint">
+      ↓ ONE LAST LITTLE SURPRISE ↓
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+  crafted by • 03202008
+</footer>
+
+</div>
+
+
+<script>
+
+/* =========================
+   STARS
+========================= */
+
+const canvas =
+  document.getElementById("stars");
+
+const ctx =
+  canvas.getContext("2d");
+
+let W,H;
+let stars=[];
+
+
+function resize(){
+
+  W =
+    canvas.width =
+    window.innerWidth;
+
+  H =
+    canvas.height =
+    window.innerHeight;
+
+  stars=[];
+
+  const amount =
+    Math.min(
+      180,
+      Math.floor(W*H/7000)
+    );
+
+
+  for(let i=0;i<amount;i++){
+
+    stars.push({
+
+      x:Math.random()*W,
+
+      y:Math.random()*H,
+
+      r:Math.random()*1.5+.2,
+
+      alpha:Math.random(),
+
+      speed:Math.random()*.015+.003
+
+    });
+
+  }
+
+}
+
+
+resize();
+
+window.addEventListener(
+  "resize",
+  resize
+);
+
+
+function animateStars(){
+
+  ctx.clearRect(
+    0,
+    0,
+    W,
+    H
+  );
+
+
+  stars.forEach(star=>{
+
+    star.alpha +=
+      star.speed;
+
+
+    if(
+      star.alpha>1 ||
+      star.alpha<0
+    ){
+
+      star.speed *= -1;
+
+    }
+
+
+    ctx.globalAlpha =
+      star.alpha;
+
+
+    ctx.fillStyle =
+      "#e7d27b";
+
+
+    ctx.beginPath();
+
+
+    ctx.arc(
+      star.x,
+      star.y,
+      star.r,
+      0,
+      Math.PI*2
+    );
+
+
+    ctx.fill();
+
+  });
+
+
+  requestAnimationFrame(
+    animateStars
+  );
+
+}
+
+
+animateStars();
+
+
+/* =========================
+   SCROLL
+========================= */
+
+function goToSurprise(){
+
+  document
+    .getElementById("surprise")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+function openGift(){
+
+  const gift =
+    document.getElementById("gift");
+
+  const message =
+    document.getElementById("message");
+
+
+  if(
+    gift.classList.contains("open")
+  ){
+    return;
+  }
+
+
+  gift.classList.add("open");
+
+  message.classList.add("show");
+
+
+  createSparks(65);
+
+
+  setTimeout(()=>{
+
+    message.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  },900);
+
+}
+
+
+/* =========================
+   SPARKS
+========================= */
+
+function createSparks(amount){
+
+  for(
+    let i=0;
+    i<amount;
+    i++
+  ){
+
+    const spark =
+      document.createElement("i");
+
+
+    spark.className =
+      "spark";
+
+
+    spark.style.left =
+      (
+        window.innerWidth/2
+        +
+        (Math.random()-.5)*190
+      )+"px";
+
+
+    spark.style.top =
+      (
+        window.innerHeight*.45
+        +
+        (Math.random()-.5)*160
+      )+"px";
+
+
+    spark.style.setProperty(
+      "--x",
+      ((Math.random()-.5)*360)+"px"
+    );
+
+
+    spark.style.setProperty(
+      "--y",
+      ((Math.random()-.5)*360)+"px"
+    );
+
+
+    document.body.appendChild(
+      spark
+    );
+
+
+    setTimeout(
+      ()=>spark.remove(),
+      1000
+    );
+
+  }
+
+}
+
+
+/* =========================
+   FINAL SURPRISE
+========================= */
+
+function celebrate(){
+
+  for(
+    let i=0;
+    i<140;
+    i++
+  ){
+
+    const piece =
+      document.createElement("i");
+
+
+    piece.className =
+      "confetti";
+
+
+    piece.style.left =
+      Math.random()*100+"vw";
+
+
+    piece.style.animationDuration =
+      (
+        2.5+
+        Math.random()*3
+      )+"s";
+
+
+    piece.style.animationDelay =
+      (
+        Math.random()*1.2
+      )+"s";
+
+
+    const colors=[
+      "#d4af37",
+      "#f6e6a1",
+      "#ffffff",
+      "#9b741e"
+    ];
+
+
+    piece.style.background =
+      colors[
+        Math.floor(
+          Math.random()*colors.length
+        )
+      ];
+
+
+    document.body.appendChild(
+      piece
+    );
+
+
+    setTimeout(
+      ()=>piece.remove(),
+      6500
+    );
+
+  }
+
+
+  createSparks(100);
+
+}
+
+</script>
+
+</body>
+</html>
