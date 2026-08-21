@@ -7,6 +7,11 @@
 <title>FAVORITE JANNAT • 28 SEPTEMBER</title>
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
   margin:0;
   padding:0;
@@ -24,339 +29,789 @@ body{
   overflow-x:hidden;
 }
 
-#stars{
+
+/* =====================================================
+   PREMIUM BACKGROUND
+===================================================== */
+
+body::before{
+
+  content:"";
+
   position:fixed;
+
+  width:160vw;
+  height:160vh;
+
+  left:-30vw;
+  top:-30vh;
+
+  z-index:0;
+
+  pointer-events:none;
+
+  background:
+
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(212,175,55,.13),
+      transparent 22%
+    ),
+
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(255,220,120,.08),
+      transparent 20%
+    ),
+
+    radial-gradient(
+      circle at 65% 75%,
+      rgba(212,175,55,.10),
+      transparent 24%
+    ),
+
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(180,130,30,.07),
+      transparent 22%
+    );
+
+  filter:blur(5px);
+
+  animation:
+    backgroundDrift
+    22s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+@keyframes backgroundDrift{
+
+  0%{
+    transform:
+      translate3d(-2%, -1%, 0)
+      scale(1);
+  }
+
+  50%{
+    transform:
+      translate3d(3%, 2%, 0)
+      scale(1.08);
+  }
+
+  100%{
+    transform:
+      translate3d(-1%, 4%, 0)
+      scale(1.03);
+  }
+}
+
+
+/* =====================================================
+   STAR CANVAS
+===================================================== */
+
+#stars{
+
+  position:fixed;
+
   inset:0;
+
   width:100%;
   height:100%;
-  z-index:0;
+
+  z-index:1;
+
   pointer-events:none;
 }
+
+
+/* =====================================================
+   EXTRA LIGHT LAYER
+===================================================== */
+
+#lightField{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  overflow:hidden;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
 
 .page{
+
   position:relative;
-  z-index:2;
+
+  z-index:3;
 }
+
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
+
   min-height:100vh;
+
   display:flex;
+
   justify-content:center;
+
   align-items:center;
+
   text-align:center;
+
   position:relative;
+
   padding:30px;
+
   background:
-    radial-gradient(circle at center,
-    rgba(212,175,55,.15),
-    transparent 38%),
-    #020202;
+
+    radial-gradient(
+      circle at center,
+      rgba(212,175,55,.14),
+      transparent 36%
+    );
 }
 
+
 .frame{
+
   position:absolute;
+
   inset:18px;
-  border:1px solid rgba(212,175,55,.25);
+
+  border:
+    1px solid
+    rgba(212,175,55,.25);
+
   pointer-events:none;
 }
+
 
 .frame:before,
 .frame:after{
+
   content:"";
+
   position:absolute;
+
   width:75px;
   height:75px;
 }
 
+
 .frame:before{
+
   top:-1px;
   left:-1px;
-  border-top:2px solid #d4af37;
-  border-left:2px solid #d4af37;
+
+  border-top:
+    2px solid
+    #d4af37;
+
+  border-left:
+    2px solid
+    #d4af37;
 }
+
 
 .frame:after{
+
   right:-1px;
   bottom:-1px;
-  border-right:2px solid #d4af37;
-  border-bottom:2px solid #d4af37;
+
+  border-right:
+    2px solid
+    #d4af37;
+
+  border-bottom:
+    2px solid
+    #d4af37;
 }
+
 
 .small-title{
+
   color:#d4af37;
+
   font-family:Arial,sans-serif;
+
   font-size:11px;
+
   letter-spacing:7px;
+
   text-transform:uppercase;
-  animation:fadeUp 1.5s ease;
+
+  animation:
+    fadeUp
+    1.5s
+    ease;
 }
+
 
 .line{
+
   width:130px;
+
   height:1px;
+
   margin:25px auto;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #d4af37,
-    transparent
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d4af37,
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px
+    rgba(212,175,55,.3);
 }
+
 
 .hero h1{
-  font-size:clamp(48px,11vw,110px);
+
+  font-size:
+    clamp(
+      48px,
+      11vw,
+      110px
+    );
+
   font-weight:400;
+
   letter-spacing:8px;
+
   line-height:1.05;
-  background:linear-gradient(
-    90deg,
-    #765718,
-    #fff0a0,
-    #d4af37,
-    #fff8c9,
-    #765718
-  );
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #765718,
+      #fff0a0,
+      #d4af37,
+      #fff8c9,
+      #765718
+    );
+
   background-size:300%;
+
   -webkit-background-clip:text;
+
   background-clip:text;
+
   color:transparent;
+
   animation:
-    goldMove 6s linear infinite,
-    fadeUp 1.8s ease;
+
+    goldMove
+    6s
+    linear
+    infinite,
+
+    fadeUp
+    1.8s
+    ease;
+
+  text-shadow:
+    0 0 35px
+    rgba(212,175,55,.08);
 }
 
+
 .subtitle{
+
   color:#bdbdbd;
+
   font-family:Arial,sans-serif;
+
   font-size:12px;
+
   letter-spacing:5px;
+
   text-transform:uppercase;
 }
 
+
 .date{
+
   color:#e6ce77;
+
   margin-top:28px;
+
   font-size:22px;
+
   letter-spacing:8px;
+
+  text-shadow:
+    0 0 18px
+    rgba(212,175,55,.25);
 }
+
 
 .enter{
+
   margin-top:42px;
+
   padding:16px 34px;
-  background:transparent;
-  border:1px solid #d4af37;
+
+  background:
+    rgba(0,0,0,.25);
+
+  border:
+    1px solid
+    #d4af37;
+
   color:#e9d27d;
+
   cursor:pointer;
+
   font-family:Arial,sans-serif;
+
   font-size:11px;
+
   letter-spacing:4px;
+
   transition:.4s;
-  animation:buttonPulse 2.2s infinite;
+
+  animation:
+    buttonPulse
+    2.2s
+    infinite;
 }
+
 
 .enter:hover{
+
   background:#d4af37;
+
   color:#050505;
+
   box-shadow:
-    0 0 30px rgba(212,175,55,.4),
-    0 0 80px rgba(212,175,55,.15);
-  transform:translateY(-4px);
+
+    0 0 30px
+    rgba(212,175,55,.4),
+
+    0 0 80px
+    rgba(212,175,55,.15);
+
+  transform:
+    translateY(-4px);
 }
+
 
 .click-hint{
+
   margin-top:16px;
+
   color:#887747;
+
   font-family:Arial,sans-serif;
+
   font-size:9px;
+
   letter-spacing:3px;
-  animation:hintPulse 1.8s infinite;
+
+  animation:
+    hintPulse
+    1.8s
+    infinite;
 }
 
+
+/* =====================================================
+   COMMON
+===================================================== */
+
 section{
+
   min-height:100vh;
+
   position:relative;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   text-align:center;
+
   padding:100px 20px;
 }
 
+
 .wrap{
-  width:min(900px,100%);
+
+  width:
+    min(
+      900px,
+      100%
+    );
 }
 
+
 .label{
+
   color:#a98932;
+
   font-family:Arial,sans-serif;
+
   font-size:10px;
+
   letter-spacing:6px;
+
   text-transform:uppercase;
 }
 
+
 h2{
+
   color:#ead47d;
+
   font-weight:400;
-  font-size:clamp(34px,7vw,65px);
+
+  font-size:
+    clamp(
+      34px,
+      7vw,
+      65px
+    );
+
   margin:18px 0;
 }
 
+
+/* =====================================================
+   CARD
+===================================================== */
+
 .card{
-  width:min(720px,100%);
+
+  width:
+    min(
+      720px,
+      100%
+    );
+
   margin:auto;
+
   padding:45px 30px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.035),
-    rgba(212,175,55,.025)
-  );
-  border:1px solid rgba(212,175,55,.28);
-  box-shadow:0 30px 100px rgba(0,0,0,.6);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(212,175,55,.025)
+    );
+
+  border:
+    1px solid
+    rgba(212,175,55,.28);
+
+  box-shadow:
+
+    0 30px 100px
+    rgba(0,0,0,.6),
+
+    inset 0 0 50px
+    rgba(212,175,55,.015);
+
+  backdrop-filter:
+    blur(5px);
 }
 
+
 .card-intro{
+
   color:#cfcfcf;
+
   font-family:Arial,sans-serif;
+
   font-size:15px;
+
   line-height:1.9;
 }
 
+
+/* =====================================================
+   GIFT
+===================================================== */
+
 .gift-area{
+
   width:200px;
   height:190px;
+
   margin:40px auto 10px;
+
   position:relative;
+
   cursor:pointer;
-  animation:giftFloat 2.5s ease-in-out infinite;
+
+  animation:
+    giftFloat
+    2.5s
+    ease-in-out
+    infinite;
 }
+
 
 .gift{
+
   position:absolute;
+
   bottom:0;
   left:40px;
+
   width:120px;
   height:95px;
-  background:linear-gradient(
-    135deg,
-    #725414,
-    #d4af37,
-    #8d681c
-  );
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #725414,
+      #d4af37,
+      #8d681c
+    );
+
   border-radius:3px;
-  box-shadow:0 20px 40px rgba(0,0,0,.7);
+
+  box-shadow:
+
+    0 20px 40px
+    rgba(0,0,0,.7),
+
+    0 0 25px
+    rgba(212,175,55,.08);
 }
 
+
 .gift:after{
+
   content:"";
+
   position:absolute;
+
   top:0;
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:18px;
+
   height:100%;
+
   background:#f6df82;
 }
 
+
 .lid{
+
   position:absolute;
+
   z-index:3;
+
   left:32px;
   top:58px;
+
   width:136px;
   height:30px;
-  background:linear-gradient(
-    135deg,
-    #866217,
-    #f1d56e,
-    #8c681d
-  );
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #866217,
+      #f1d56e,
+      #8c681d
+    );
+
   border-radius:4px;
-  transition:transform 1s cubic-bezier(.2,.8,.2,1);
+
+  transition:
+
+    transform
+    1s
+    cubic-bezier(.2,.8,.2,1);
 }
 
+
 .ribbon{
+
   position:absolute;
+
   z-index:4;
+
   top:34px;
   left:50%;
-  transform:translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   width:18px;
   height:35px;
+
   background:#f5dc7d;
 }
 
+
 .gift-area:hover{
-  transform:scale(1.05);
+
+  transform:
+    scale(1.05);
 }
 
+
 .gift-area.open{
+
   animation:none;
 }
 
+
 .gift-area.open .lid{
+
   transform:
     translateY(-75px)
     rotate(-8deg);
 }
 
+
 .gift-area.open .gift{
-  animation:giftGlow 1.2s infinite alternate;
+
+  animation:
+    giftGlow
+    1.2s
+    infinite
+    alternate;
 }
+
 
 .tap-box{
+
   display:inline-block;
+
   margin-top:12px;
+
   padding:10px 17px;
-  border:1px solid rgba(212,175,55,.35);
+
+  border:
+    1px solid
+    rgba(212,175,55,.35);
+
   color:#d9bd68;
+
   font-family:Arial,sans-serif;
+
   font-size:10px;
+
   letter-spacing:3px;
-  animation:hintPulse 1.7s infinite;
+
+  animation:
+    hintPulse
+    1.7s
+    infinite;
 }
 
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
 .message{
+
   max-height:0;
+
   overflow:hidden;
+
   opacity:0;
+
   transition:
+
     max-height 2s ease,
     opacity 1.5s ease;
 }
 
+
 .message.show{
-  max-height:1500px;
+
+  max-height:1800px;
+
   opacity:1;
 }
 
+
 .salam{
+
   color:#f0d982;
+
   font-size:24px;
+
   letter-spacing:2px;
+
   margin-top:10px;
 }
 
+
 .dua{
+
   color:#ddd;
+
   font-size:16px;
+
   line-height:2;
+
   margin-top:22px;
 }
 
+
 .message-text{
+
   margin-top:25px;
+
   color:#d4d4d4;
+
   font-size:16px;
+
   line-height:2;
 }
 
+
 .highlight{
+
   color:#ead47d;
+
   font-size:21px;
 }
 
+
+/* =====================================================
+   MEMORY
+===================================================== */
+
 .memories{
+
   background:
+
     radial-gradient(
       circle at center,
       rgba(212,175,55,.06),
@@ -364,46 +819,131 @@ h2{
     );
 }
 
+
 .memory-card{
-  width:min(700px,100%);
+
+  width:
+    min(
+      700px,
+      100%
+    );
+
   margin:45px auto;
+
   padding:35px 30px;
-  border-left:2px solid #d4af37;
-  border-right:1px solid rgba(212,175,55,.2);
-  background:rgba(255,255,255,.025);
+
+  border-left:
+    2px solid
+    #d4af37;
+
+  border-right:
+    1px solid
+    rgba(212,175,55,.2);
+
+  background:
+    rgba(255,255,255,.025);
+
+  backdrop-filter:
+    blur(5px);
+
   opacity:0;
-  transform:translateY(60px);
-  transition:1s ease;
+
+  transform:
+    translateY(60px);
+
+  transition:
+    1s ease;
+
+  box-shadow:
+    0 20px 70px
+    rgba(0,0,0,.25);
 }
+
 
 .memory-card.visible{
+
   opacity:1;
-  transform:translateY(0);
+
+  transform:
+    translateY(0);
 }
 
+
 .memory-number{
+
   color:#8f7027;
+
   font-family:Arial,sans-serif;
+
   font-size:10px;
+
   letter-spacing:5px;
 }
 
+
 .memory-card h3{
+
   color:#ead47d;
+
   font-size:30px;
+
   font-weight:400;
+
   margin:15px 0;
 }
 
+
 .memory-card p{
+
   color:#aaa;
+
   font-family:Arial,sans-serif;
+
   line-height:1.9;
+
   font-size:14px;
 }
 
+
+/* =====================================================
+   BANGLA
+===================================================== */
+
+.bangla-caption{
+
+  margin-top:24px;
+
+  padding-top:20px;
+
+  border-top:
+    1px solid
+    rgba(212,175,55,.12);
+
+  color:#d8cfae;
+
+  font-family:
+
+    "Noto Sans Bengali",
+    "Nirmala UI",
+    Arial,
+    sans-serif;
+
+  font-size:14px;
+
+  line-height:2;
+
+  opacity:.95;
+}
+
+
+/* =====================================================
+   WISH
+===================================================== */
+
 .wish{
+
   background:
+
     radial-gradient(
       circle at center,
       rgba(212,175,55,.10),
@@ -411,160 +951,350 @@ h2{
     );
 }
 
+
 .wish-title{
-  font-size:clamp(40px,8vw,85px);
+
+  font-size:
+    clamp(
+      40px,
+      8vw,
+      85px
+    );
+
   font-weight:400;
+
   letter-spacing:5px;
-  background:linear-gradient(
-    90deg,
-    #9b741e,
-    #fff0a0,
-    #d4af37,
-    #fff7bd
-  );
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #9b741e,
+      #fff0a0,
+      #d4af37,
+      #fff7bd
+    );
+
   background-size:250%;
+
   -webkit-background-clip:text;
+
   background-clip:text;
+
   color:transparent;
-  animation:goldMove 5s linear infinite;
+
+  animation:
+    goldMove
+    5s
+    linear
+    infinite;
 }
 
+
 .wish-text{
+
   max-width:650px;
+
   margin:30px auto;
+
   color:#bdbdbd;
+
   font-family:Arial,sans-serif;
+
   line-height:2;
+
   font-size:15px;
 }
 
+
+.wish-bangla{
+
+  max-width:700px;
+
+  margin:28px auto 0;
+
+  padding-top:22px;
+
+  border-top:
+    1px solid
+    rgba(212,175,55,.14);
+
+  color:#d8cfae;
+
+  font-family:
+
+    "Noto Sans Bengali",
+    "Nirmala UI",
+    Arial,
+    sans-serif;
+
+  font-size:15px;
+
+  line-height:2;
+}
+
+
+.final-name{
+
+  color:#e7d27c;
+
+  font-size:
+    clamp(
+      30px,
+      7vw,
+      65px
+    );
+
+  letter-spacing:6px;
+
+  margin-top:25px;
+
+  text-shadow:
+    0 0 25px
+    rgba(212,175,55,.15);
+}
+
+
+/* =====================================================
+   LAST
+===================================================== */
+
 .last{
+
   min-height:110vh;
+
   background:
+
     radial-gradient(
       circle at center,
       rgba(212,175,55,.12),
       transparent 38%
-    ),
-    #020202;
+    );
 }
 
+
 .last-title{
+
   color:#887747;
+
   font-family:Arial,sans-serif;
+
   font-size:10px;
+
   letter-spacing:7px;
 }
 
+
 .wait{
+
   margin-top:30px;
+
   color:#ddd;
-  font-size:clamp(25px,5vw,45px);
+
+  font-size:
+    clamp(
+      25px,
+      5vw,
+      45px
+    );
+
   font-weight:400;
 }
 
+
 .last-text{
+
   max-width:600px;
+
   margin:30px auto;
+
   color:#888;
+
   font-family:Arial,sans-serif;
+
   line-height:2;
 }
 
-.final-name{
-  color:#e7d27c;
-  font-size:clamp(30px,7vw,65px);
-  letter-spacing:6px;
-  margin-top:25px;
-}
+
+/* =====================================================
+   LOVE YOU
+===================================================== */
 
 .love-you{
+
   position:fixed;
+
   left:50%;
   top:50%;
+
   transform:
     translate(-50%,-35%)
     scale(.6);
+
   z-index:200;
+
   color:#f0d982;
-  font-size:clamp(35px,8vw,75px);
+
+  font-size:
+    clamp(
+      35px,
+      8vw,
+      75px
+    );
+
   letter-spacing:6px;
+
   text-shadow:
-    0 0 15px rgba(212,175,55,.7),
-    0 0 45px rgba(212,175,55,.4),
-    0 0 90px rgba(212,175,55,.2);
+
+    0 0 15px
+    rgba(212,175,55,.7),
+
+    0 0 45px
+    rgba(212,175,55,.4),
+
+    0 0 90px
+    rgba(212,175,55,.2);
+
   pointer-events:none;
+
   opacity:0;
+
   white-space:nowrap;
-  animation:loveRise 4s ease-out forwards;
+
+  animation:
+    loveRise
+    4s
+    ease-out
+    forwards;
 }
 
+
 @keyframes loveRise{
+
   0%{
+
     opacity:0;
+
     transform:
       translate(-50%,0)
       scale(.6);
   }
 
   15%{
+
     opacity:1;
+
     transform:
       translate(-50%,-30%)
       scale(1);
   }
 
   60%{
+
     opacity:1;
+
     transform:
       translate(-50%,-55%)
       scale(1.05);
   }
 
   100%{
+
     opacity:0;
+
     transform:
       translate(-50%,-120%)
       scale(1.15);
   }
 }
 
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
 footer{
+
   position:relative;
+
   z-index:5;
+
   text-align:center;
+
   padding:45px 20px;
+
   background:#010101;
+
   color:#d4af37;
+
   font-family:Arial,sans-serif;
+
   font-size:14px;
+
   letter-spacing:5px;
+
   font-weight:500;
-  text-shadow:0 0 15px rgba(212,175,55,.25);
+
+  text-shadow:
+    0 0 15px
+    rgba(212,175,55,.25);
 }
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
 
 .confetti{
+
   position:fixed;
+
   top:-20px;
+
   width:6px;
   height:14px;
+
   z-index:100;
+
   pointer-events:none;
-  animation:confettiFall 4s linear forwards;
+
+  animation:
+    confettiFall
+    4s
+    linear
+    forwards;
 }
+
 
 .spark{
+
   position:fixed;
+
   width:5px;
   height:5px;
+
   border-radius:50%;
+
   background:#f3d77b;
+
   z-index:100;
+
   pointer-events:none;
-  animation:sparkMove 1s ease-out forwards;
+
+  animation:
+    sparkMove
+    1s
+    ease-out
+    forwards;
 }
 
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
 @keyframes goldMove{
+
   from{
     background-position:0%;
   }
@@ -574,33 +1304,47 @@ footer{
   }
 }
 
+
 @keyframes fadeUp{
+
   from{
+
     opacity:0;
-    transform:translateY(30px);
+
+    transform:
+      translateY(30px);
   }
 
   to{
+
     opacity:1;
-    transform:translateY(0);
+
+    transform:
+      translateY(0);
   }
 }
 
+
 @keyframes buttonPulse{
+
   0%,100%{
+
     box-shadow:
       0 0 0
       rgba(212,175,55,0);
   }
 
   50%{
+
     box-shadow:
       0 0 25px
       rgba(212,175,55,.22);
   }
 }
 
+
 @keyframes hintPulse{
+
   0%,100%{
     opacity:.45;
   }
@@ -610,47 +1354,76 @@ footer{
   }
 }
 
+
 @keyframes giftFloat{
+
   0%,100%{
-    transform:translateY(0);
+
+    transform:
+      translateY(0);
   }
 
   50%{
-    transform:translateY(-8px);
+
+    transform:
+      translateY(-8px);
   }
 }
 
+
 @keyframes giftGlow{
+
   from{
+
     filter:brightness(1);
   }
 
   to{
+
     filter:brightness(1.4);
+
     box-shadow:
+
       0 0 40px
       rgba(212,175,55,.5),
+
       0 0 100px
       rgba(212,175,55,.15);
   }
 }
 
+
 @keyframes confettiFall{
+
   to{
+
     transform:
       translateY(110vh)
       rotate(720deg);
+
     opacity:0;
   }
 }
 
+
 @keyframes sparkMove{
+
   to{
+
     transform:
-      translate(var(--x),var(--y));
+      translate(
+        var(--x),
+        var(--y)
+      );
+
     opacity:0;
   }
 }
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:600px){
 
@@ -663,12 +1436,16 @@ footer{
   }
 
   .date{
+
     font-size:16px;
+
     letter-spacing:5px;
   }
 
   .card{
-    padding:35px 20px;
+
+    padding:
+      35px 20px;
   }
 
   .message-text{
@@ -680,31 +1457,60 @@ footer{
   }
 
   .enter{
-    padding:14px 22px;
+
+    padding:
+      14px 22px;
   }
 
   .final-name{
+
     letter-spacing:3px;
   }
 
   footer{
+
     font-size:12px;
+
     letter-spacing:3px;
   }
 
   .love-you{
+
     font-size:32px;
+
     letter-spacing:4px;
   }
+
+  .bangla-caption{
+
+    font-size:13px;
+
+    line-height:1.9;
+  }
+
+  .wish-bangla{
+
+    font-size:14px;
+  }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <canvas id="stars"></canvas>
 
+<div id="lightField"></div>
+
 <div class="page">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
 
@@ -749,6 +1555,12 @@ onclick="goToSurprise()">
 
 </section>
 
+
+
+<!-- =====================================================
+     CHAPTER I
+===================================================== -->
+
 <section id="surprise">
 
 <div class="wrap">
@@ -773,6 +1585,7 @@ then open the gift. ✨
 
 </p>
 
+
 <div
 class="gift-area"
 id="gift"
@@ -786,11 +1599,15 @@ onclick="openGift()">
 
 </div>
 
+
 <div class="tap-box">
 🎁 TAP THE GIFT TO OPEN
 </div>
 
-<div class="message" id="message">
+
+<div
+class="message"
+id="message">
 
 <div class="line"></div>
 
@@ -811,6 +1628,7 @@ ASSALAMU-ALAIKUM 🖤
 
 </div>
 
+
 <div class="message-text">
 
 <div class="highlight">
@@ -826,10 +1644,12 @@ Happy Birthday, FAVORITE JANNAT. 🎂
 
 <br><br>
 
-যাই হোক, বন্ধু হিসেবে আমি তোমার সিদ্ধান্তকে সম্মান করি। ❤️<br>
-  
- 
-  আজ তোমার জন্মদিন—
+যাই হোক, বন্ধু হিসেবে আমি তোমার
+সিদ্ধান্তকে সম্মান করি। ❤️
+
+<br><br>
+
+আজ তোমার জন্মদিন—
 
 <br><br>
 
@@ -853,7 +1673,16 @@ I’m truly sorry.
 শুধু তোমার বিশেষ দিনটাকে
 একটু সুন্দর করে তুলতে চেয়েছিলাম।
 
-<br><br>
+  <br><br>
+
+  তোমার জন্য যত্ন করে বানানো ছোট্ট একটি উপহার। 🎁✨ 
+
+  <br><br>
+ <strong style="color:#e8d18a">
+A little gift, made with care, just for you. 🎁✨ 
+</strong>
+
+  <br><br>
 
 <strong style="color:#e8d18a">
 Happy Birthday once again. ✨
@@ -871,6 +1700,12 @@ Take care, always. 🖤
 
 </section>
 
+
+
+<!-- =====================================================
+     CHAPTER II
+===================================================== -->
+
 <section class="memories">
 
 <div class="wrap">
@@ -883,6 +1718,7 @@ Chapter II • Little Things
 A Few Little Words…
 </h2>
 
+
 <div class="memory-card">
 
 <div class="memory-number">
@@ -894,12 +1730,30 @@ Some days deserve to be remembered.
 </h3>
 
 <p>
+
 And today is one of those days.
 May this birthday become a beautiful
 memory that stays with you for a long time.
+
 </p>
 
+<div class="bangla-caption">
+
+কিছু কিছু দিন মনে রাখার মতো হয়।<br>
+
+আর আজ তেমনই একটি দিন।<br>
+
+এই জন্মদিনটা যেন তোমার জীবনের
+একটি সুন্দর স্মৃতি হয়ে থেকে যায়,<br>
+
+যেটা অনেকদিন পরও মনে পড়লে
+মুখে একটু হাসি ফুটে ওঠে। ✨
+
 </div>
+
+</div>
+
+
 
 <div class="memory-card">
 
@@ -912,13 +1766,31 @@ May beautiful things find you.
 </h3>
 
 <p>
+
 May your days become brighter,
 your heart stay peaceful,
 and every new chapter bring
 something worth smiling about.
+
 </p>
 
+<div class="bangla-caption">
+
+তোমার জীবনে সুন্দর সুন্দর মুহূর্ত
+নিজে থেকেই এসে ধরা দিক।<br>
+
+তোমার প্রতিটি দিন আরও উজ্জ্বল হোক,
+মনটা শান্তিতে ভরে থাকুক,<br>
+
+আর জীবনের প্রতিটি নতুন অধ্যায়
+তোমার জন্য বয়ে আনুক
+হাসার মতো কোনো না কোনো কারণ। 🌸
+
 </div>
+
+</div>
+
+
 
 <div class="memory-card">
 
@@ -931,17 +1803,41 @@ Always keep smiling. ✨
 </h3>
 
 <p>
+
 Whatever comes next,
 may you have the strength to face it,
 the patience to grow through it,
 and many reasons to smile along the way.
+
 </p>
+
+<div class="bangla-caption">
+
+সামনে যা-ই আসুক,
+তা মোকাবিলা করার মতো শক্তি যেন তোমার থাকে,<br>
+
+সময়কে বুঝে নেওয়ার মতো
+ধৈর্য যেন থাকে,<br>
+
+আর জীবনের প্রতিটি পথে
+হাসার মতো অনেক কারণ
+যেন খুঁজে পাও।<br>
+
+সবসময় এভাবেই হাসিখুশি থেকো। 🖤
+
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     CHAPTER III
+===================================================== -->
 
 <section class="wish">
 
@@ -963,6 +1859,7 @@ FAVORITE JANNAT
 
 <div class="line"></div>
 
+
 <p class="wish-text">
 
 May your special day be filled with
@@ -982,9 +1879,46 @@ a reason to smile. ✨
 
 </p>
 
+
+<div class="wish-bangla">
+
+তোমার এই বিশেষ দিনটি
+সুন্দর সুন্দর মুহূর্তে ভরে উঠুক,<br>
+
+তোমার হাসি হোক সত্যিকারের,
+আর হৃদয়টা থাকুক শান্তিতে।<br>
+
+আজকের এই দিনটি যেন এমন কিছু
+সুন্দর স্মৃতি দিয়ে যায়,<br>
+
+যেগুলো তুমি অনেকদিন পরও
+মনে করে হাসতে পারো। ✨
+
+<br><br>
+
+জীবনের প্রতিটি নতুন অধ্যায়
+তোমার জন্য বয়ে আনুক
+নতুন কিছু সুন্দর মুহূর্ত,<br>
+
+নতুন কিছু আশা,
+আর অনেক অনেক ভালো থাকার কারণ। 🌸
+
+<br><br>
+
+আর সবসময় যেন তোমার
+হাসার মতো একটি কারণ থাকে। 🖤
+
+</div>
+
 </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     CHAPTER IV
+===================================================== -->
 
 <section class="last">
 
@@ -1004,7 +1938,11 @@ Wait…
 
 You reached the end.
 
+<br><br>
+
 But…
+
+<br><br>
 
 there's still one little surprise
 waiting for you.
@@ -1033,6 +1971,12 @@ onclick="celebrate()">
 
 </section>
 
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
 
 crt by • RJ-ROBIUL
@@ -1041,7 +1985,14 @@ crt by • RJ-ROBIUL
 
 </div>
 
+
+
 <script>
+
+
+/* =====================================================
+   BEAUTIFUL MOVING STARS
+===================================================== */
 
 const canvas =
 document.getElementById("stars");
@@ -1049,312 +2000,837 @@ document.getElementById("stars");
 const ctx =
 canvas.getContext("2d");
 
-let W,H;
+let W;
+let H;
 
 let stars=[];
 
+
+/* resize */
+
 function resize(){
 
-W =
-canvas.width =
-window.innerWidth;
+  W =
+    canvas.width =
+    window.innerWidth;
 
-H =
-canvas.height =
-window.innerHeight;
+  H =
+    canvas.height =
+    window.innerHeight;
 
-stars=[];
+  stars=[];
 
-const amount =
-Math.min(
-180,
-Math.floor(W*H/7000)
-);
 
-for(let i=0;i<amount;i++){
+  /*
+    বেশি screen হলে বেশি তারা,
+    কিন্তু performance ঠিক রাখার জন্য limit
+  */
 
-stars.push({
+  const amount =
+    Math.min(
+      260,
+      Math.max(
+        100,
+        Math.floor(
+          W*H/4500
+        )
+      )
+    );
 
-x:Math.random()*W,
 
-y:Math.random()*H,
+  for(
+    let i=0;
+    i<amount;
+    i++
+  ){
 
-r:Math.random()*1.5+.2,
+    stars.push({
 
-alpha:Math.random(),
+      x:
+        Math.random()*W,
 
-speed:Math.random()*.015+.003
+      y:
+        Math.random()*H,
 
-});
+      radius:
+        Math.random()*1.6+.25,
+
+      opacity:
+        Math.random()*.7+.25,
+
+      baseOpacity:
+        Math.random()*.7+.25,
+
+      speed:
+        Math.random()*.35+.04,
+
+      drift:
+        (Math.random()-.5)*.25,
+
+      twinkle:
+        Math.random()*.025+.004,
+
+      direction:
+        Math.random()>.5
+        ? 1
+        : -1,
+
+      phase:
+        Math.random()*Math.PI*2
+
+    });
+
+  }
 
 }
 
-}
 
 resize();
 
+
 window.addEventListener(
-"resize",
-resize
+  "resize",
+  resize
 );
+
+
+
+/* animation */
 
 function animateStars(){
 
-ctx.clearRect(
-0,
-0,
-W,
-H
-);
+  ctx.clearRect(
+    0,
+    0,
+    W,
+    H
+  );
 
-stars.forEach(star=>{
 
-star.alpha +=
-star.speed;
+  stars.forEach(
+    star=>{
 
-if(
-star.alpha>1 ||
-star.alpha<0
-){
 
-star.speed *= -1;
+      /*
+        smooth floating movement
+      */
+
+      star.phase += .008;
+
+
+      star.y -=
+        star.speed;
+
+
+      star.x +=
+        star.drift
+        +
+        Math.sin(star.phase)*.08;
+
+
+      /*
+        twinkle
+      */
+
+      star.opacity +=
+        star.twinkle *
+        star.direction;
+
+
+      if(
+        star.opacity > 1
+      ){
+
+        star.opacity=1;
+
+        star.direction=-1;
+
+      }
+
+
+      if(
+        star.opacity < .12
+      ){
+
+        star.opacity=.12;
+
+        star.direction=1;
+
+      }
+
+
+      /*
+        screen wrap
+      */
+
+      if(
+        star.y < -15
+      ){
+
+        star.y =
+          H+15;
+
+        star.x =
+          Math.random()*W;
+
+      }
+
+
+      if(
+        star.x < -20
+      ){
+
+        star.x =
+          W+20;
+
+      }
+
+
+      if(
+        star.x > W+20
+      ){
+
+        star.x =
+          -20;
+
+      }
+
+
+      /*
+        star glow
+      */
+
+      if(
+        star.radius > 1.15
+      ){
+
+        const glow =
+          ctx.createRadialGradient(
+
+            star.x,
+            star.y,
+            0,
+
+            star.x,
+            star.y,
+            star.radius*6
+
+          );
+
+
+        glow.addColorStop(
+          0,
+          `rgba(255,235,150,${star.opacity*.45})`
+        );
+
+
+        glow.addColorStop(
+          1,
+          "rgba(212,175,55,0)"
+        );
+
+
+        ctx.fillStyle =
+          glow;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+          star.x,
+          star.y,
+          star.radius*6,
+          0,
+          Math.PI*2
+        );
+
+        ctx.fill();
+
+      }
+
+
+      /*
+        actual star
+      */
+
+      ctx.globalAlpha =
+        star.opacity;
+
+
+      ctx.fillStyle =
+        "#f5df91";
+
+
+      ctx.beginPath();
+
+      ctx.arc(
+        star.x,
+        star.y,
+        star.radius,
+        0,
+        Math.PI*2
+      );
+
+      ctx.fill();
+
+
+      /*
+        tiny cross sparkle
+        on some larger stars
+      */
+
+      if(
+        star.radius > 1.35
+        &&
+        star.opacity > .65
+      ){
+
+        ctx.globalAlpha =
+          star.opacity*.45;
+
+
+        ctx.strokeStyle =
+          "#f5df91";
+
+
+        ctx.lineWidth=.5;
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+          star.x-star.radius*3,
+          star.y
+        );
+
+        ctx.lineTo(
+          star.x+star.radius*3,
+          star.y
+        );
+
+        ctx.moveTo(
+          star.x,
+          star.y-star.radius*3
+        );
+
+        ctx.lineTo(
+          star.x,
+          star.y+star.radius*3
+        );
+
+        ctx.stroke();
+
+      }
+
+    }
+  );
+
+
+  ctx.globalAlpha=1;
+
+
+  requestAnimationFrame(
+    animateStars
+  );
 
 }
 
-ctx.globalAlpha =
-star.alpha;
-
-ctx.fillStyle =
-"#e7d27b";
-
-ctx.beginPath();
-
-ctx.arc(
-star.x,
-star.y,
-star.r,
-0,
-Math.PI*2
-);
-
-ctx.fill();
-
-});
-
-requestAnimationFrame(
-animateStars
-);
-
-}
 
 animateStars();
 
-function goToSurprise(){
 
-document
-.getElementById("surprise")
-.scrollIntoView({
-behavior:"smooth"
-});
+
+/* =====================================================
+   FLOATING GOLD PARTICLES
+===================================================== */
+
+function createFloatingParticle(){
+
+  const particle =
+    document.createElement(
+      "span"
+    );
+
+
+  particle.style.position =
+    "fixed";
+
+
+  particle.style.borderRadius =
+    "50%";
+
+
+  particle.style.pointerEvents =
+    "none";
+
+
+  particle.style.zIndex =
+    "1";
+
+
+  const size =
+    Math.random()*3+1;
+
+
+  particle.style.width =
+    size+"px";
+
+
+  particle.style.height =
+    size+"px";
+
+
+  particle.style.left =
+    Math.random()*100+"vw";
+
+
+  particle.style.bottom =
+    "-10px";
+
+
+  particle.style.background =
+    "#d4af37";
+
+
+  particle.style.boxShadow =
+    "0 0 15px rgba(212,175,55,.7)";
+
+
+  particle.style.opacity =
+    Math.random()*.6+.15;
+
+
+  document
+    .getElementById("lightField")
+    .appendChild(
+      particle
+    );
+
+
+  const duration =
+    9000+
+    Math.random()*11000;
+
+
+  const drift =
+    (Math.random()-.5)*220;
+
+
+  particle.animate(
+
+    [
+
+      {
+        transform:
+          "translate3d(0,0,0) scale(.4)",
+
+        opacity:0
+
+      },
+
+      {
+
+        opacity:.7
+
+      },
+
+      {
+
+        transform:
+          `translate3d(
+            ${drift}px,
+            -115vh,
+            0
+          )
+          scale(1.3)`,
+
+        opacity:0
+
+      }
+
+    ],
+
+    {
+
+      duration:
+
+        duration,
+
+      easing:
+        "linear"
+
+    }
+
+  );
+
+
+  setTimeout(
+    ()=>{
+      particle.remove();
+    },
+    duration
+  );
 
 }
+
+
+setInterval(
+  createFloatingParticle,
+  450
+);
+
+
+
+/* =====================================================
+   SCROLL TO SURPRISE
+===================================================== */
+
+function goToSurprise(){
+
+  document
+    .getElementById(
+      "surprise"
+    )
+    .scrollIntoView({
+
+      behavior:
+        "smooth"
+
+    });
+
+}
+
+
+
+/* =====================================================
+   OPEN GIFT
+===================================================== */
 
 function openGift(){
 
-const gift =
-document.getElementById("gift");
+  const gift =
+    document.getElementById(
+      "gift"
+    );
 
-const message =
-document.getElementById("message");
 
-if(
-gift.classList.contains("open")
+  const message =
+    document.getElementById(
+      "message"
+    );
+
+
+  if(
+    gift.classList.contains(
+      "open"
+    )
+  ){
+
+    return;
+
+  }
+
+
+  gift.classList.add(
+    "open"
+  );
+
+
+  message.classList.add(
+    "show"
+  );
+
+
+  createSparks(90);
+
+
+  setTimeout(
+
+    ()=>{
+
+      message.scrollIntoView({
+
+        behavior:
+          "smooth",
+
+        block:
+          "center"
+
+      });
+
+    },
+
+    900
+
+  );
+
+}
+
+
+
+/* =====================================================
+   SPARKS
+===================================================== */
+
+function createSparks(
+  amount
 ){
 
-return;
+  for(
+    let i=0;
+    i<amount;
+    i++
+  ){
+
+    const spark =
+      document.createElement(
+        "i"
+      );
+
+
+    spark.className =
+      "spark";
+
+
+    spark.style.left =
+
+      (
+        window.innerWidth/2
+        +
+        (Math.random()-.5)*220
+      )
+      +
+      "px";
+
+
+    spark.style.top =
+
+      (
+        window.innerHeight*.45
+        +
+        (Math.random()-.5)*200
+      )
+      +
+      "px";
+
+
+    spark.style.setProperty(
+
+      "--x",
+
+      (
+        (Math.random()-.5)*450
+      )
+      +
+      "px"
+
+    );
+
+
+    spark.style.setProperty(
+
+      "--y",
+
+      (
+        (Math.random()-.5)*450
+      )
+      +
+      "px"
+
+    );
+
+
+    document.body.appendChild(
+      spark
+    );
+
+
+    setTimeout(
+      ()=>{
+        spark.remove();
+      },
+      1200
+    );
+
+  }
 
 }
 
-gift.classList.add("open");
 
-message.classList.add("show");
 
-createSparks(70);
-
-setTimeout(()=>{
-
-message.scrollIntoView({
-behavior:"smooth",
-block:"center"
-});
-
-},900);
-
-}
-
-function createSparks(amount){
-
-for(
-let i=0;
-i<amount;
-i++
-){
-
-const spark =
-document.createElement("i");
-
-spark.className =
-"spark";
-
-spark.style.left =
-(
-window.innerWidth/2
-+
-(Math.random()-.5)*200
-)+"px";
-
-spark.style.top =
-(
-window.innerHeight*.45
-+
-(Math.random()-.5)*180
-)+"px";
-
-spark.style.setProperty(
-"--x",
-((Math.random()-.5)*400)+"px"
-);
-
-spark.style.setProperty(
-"--y",
-((Math.random()-.5)*400)+"px"
-);
-
-document.body.appendChild(
-spark
-);
-
-setTimeout(
-()=>spark.remove(),
-1100
-);
-
-}
-
-}
+/* =====================================================
+   FINAL SURPRISE
+===================================================== */
 
 function celebrate(){
 
-const love =
-document.createElement("div");
 
-love.className =
-"love-you";
+  /* LOVE YOU */
 
-love.textContent =
-"LOVE YOU 🖤";
+  const love =
+    document.createElement(
+      "div"
+    );
 
-document.body.appendChild(
-love
-);
 
-setTimeout(()=>{
+  love.className =
+    "love-you";
 
-love.remove();
 
-},4200);
+  love.textContent =
+    "LOVE YOU❤️🌸";
 
-for(
-let i=0;
-i<170;
-i++
-){
 
-const piece =
-document.createElement("i");
+  document.body.appendChild(
+    love
+  );
 
-piece.className =
-"confetti";
 
-piece.style.left =
-Math.random()*100+"vw";
+  setTimeout(
+    ()=>{
+      love.remove();
+    },
+    4200
+  );
 
-piece.style.animationDuration =
-(
-2.5+
-Math.random()*3
-)+"s";
 
-piece.style.animationDelay =
-(
-Math.random()*1.2
-)+"s";
 
-const colors=[
+  /* CONFETTI */
 
-"#d4af37",
-"#f6e6a1",
-"#ffffff",
-"#9b741e"
+  for(
+    let i=0;
+    i<190;
+    i++
+  ){
 
-];
+    const piece =
+      document.createElement(
+        "i"
+      );
 
-piece.style.background =
-colors[
-Math.floor(
-Math.random()*colors.length
-)
-];
 
-document.body.appendChild(
-piece
-);
+    piece.className =
+      "confetti";
 
-setTimeout(
-()=>piece.remove(),
-6500
-);
+
+    piece.style.left =
+      Math.random()*100
+      +
+      "vw";
+
+
+    piece.style.animationDuration =
+
+      (
+        2.5+
+        Math.random()*3.5
+      )
+      +
+      "s";
+
+
+    piece.style.animationDelay =
+
+      (
+        Math.random()*1.2
+      )
+      +
+      "s";
+
+
+    const colors=[
+
+      "#d4af37",
+
+      "#f6e6a1",
+
+      "#ffffff",
+
+      "#9b741e"
+
+    ];
+
+
+    piece.style.background =
+      colors[
+        Math.floor(
+          Math.random()*
+          colors.length
+        )
+      ];
+
+
+    document.body.appendChild(
+      piece
+    );
+
+
+    setTimeout(
+      ()=>{
+        piece.remove();
+      },
+      7000
+    );
+
+  }
+
+
+  /* EXTRA SPARKS */
+
+  createSparks(150);
 
 }
 
-createSparks(120);
 
-}
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
 const memoryCards =
-document.querySelectorAll(
-".memory-card"
-);
+  document.querySelectorAll(
+    ".memory-card"
+  );
+
 
 const observer =
-new IntersectionObserver(
-(entries)=>{
+  new IntersectionObserver(
 
-entries.forEach(entry=>{
+    (entries)=>{
 
-if(
-entry.isIntersecting
-){
+      entries.forEach(
+        entry=>{
 
-entry.target.classList.add(
-"visible"
+          if(
+            entry.isIntersecting
+          ){
+
+            entry.target.classList.add(
+              "visible"
+            );
+
+          }
+
+        }
+      );
+
+    },
+
+    {
+      threshold:.18
+    }
+
+  );
+
+
+memoryCards.forEach(
+  card=>{
+    observer.observe(
+      card
+    );
+  }
 );
 
-}
-
-});
-
-},
-{
-threshold:.2
-}
-);
-
-memoryCards.forEach(card=>{
-
-observer.observe(card);
-
-});
 
 </script>
 
