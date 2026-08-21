@@ -1,1 +1,1 @@
-# academic-platform
+# jannat-birthdy
